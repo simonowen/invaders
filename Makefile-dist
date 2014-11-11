@@ -1,0 +1,8 @@
+NAME=invaders
+ROMS=invaders.h invaders.g invaders.f invaders.e
+
+$(NAME).dsk: disk.base $(ROMS)
+	cat disk.base $(ROMS) > $(NAME).dsk
+
+clean:
+	rm -f $(NAME).dsk

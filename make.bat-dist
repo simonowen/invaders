@@ -1,0 +1,35 @@
+@echo off
+setlocal
+set NAME=invaders
+
+if not exist invaders.e goto missing
+if not exist invaders.f goto missing
+if not exist invaders.g goto missing
+if not exist invaders.h goto missing
+goto got_roms
+
+:missing
+echo.
+echo ****************************************************************
+echo.
+echo The Space Invaders ROMs can't be distributed with this program,
+echo so you must provide your own copies of:
+echo.
+echo   invaders.e invaders.f invaders.g invaders.h
+echo.
+echo Copy them to this directory and re-run to generate: %NAME%.dsk
+echo.
+echo ****************************************************************
+echo.
+pause
+goto end
+
+:got_roms
+copy /b disk.base+invaders.h+invaders.g+invaders.f+invaders.e %NAME%.dsk
+
+echo.
+echo %NAME%.dsk is ready to launch in SimCoupe, or transfer to floppy!
+echo.
+
+:end
+endlocal

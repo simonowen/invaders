@@ -31,7 +31,7 @@ out_a_op:      equ  &d3             ; OUT (n),a opcode
                dump $
                autoexec
 
-               di
+start:         di
 
                ; Page Invaders ROM at &0000
                ld   a,rom_page+rom0_off
@@ -683,10 +683,13 @@ lp2_1a69:      ld   a,(de)
                ret
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-len:           equ  $-base
+length:        equ $ - start        ; code length
 
                defs -$\256
 reverse_tab:   defs 256
 
                dump rom_page,0
-               mdat "invaders.rom"  ; not supplied!
+mdat "invaders.h"
+mdat "invaders.g"
+mdat "invaders.f"
+mdat "invaders.e"

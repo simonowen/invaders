@@ -1,3 +1,7 @@
 .*
+dist/
 !.gitignore
 invaders.dsk
+invaders.map
+invaders.lst
+invaders.[efgh]
